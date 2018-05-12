@@ -22,7 +22,7 @@ public class Hand
 			cardList.Add(new Card(info));
 		}
 
-		// IMPORTANT: Using Linq to sort the array based on Value, then save to public Cards.
+		// IMPORTANT: Using Linq to sort the array based on Value, then save to public variable Cards.
 		Cards = cardList.OrderBy(x => x.Value).ToArray();
 	}
 	

@@ -73,21 +73,14 @@ public class Round
 		// Now find the player with the highest score.
 		if (scores[0] == scores[1])
 		{
-			//Debug.LogFormat("Draw [ P1: {0}, P2: {1} ]", scores[0], scores[1]);
 			return -1; // draw
 		}
 		else if (scores[0] > scores[1])
 		{
-			//Debug.LogFormat("P1 Win [ P1: {0}, P2: {1} ]", scores[0], scores[1]);
 			return 0; // player 1 wins
 		}
 		else
 		{
-			//Debug.LogFormat("P2 Win [ P1: {0}, P2: {1} ]", scores[0], scores[1]);
-
-			if (scores[1] < 200)
-				Debug.Log("regel: " + PokerJudge.roundnr);
-
 			return 1; // player 2 wins
 		}
 	}

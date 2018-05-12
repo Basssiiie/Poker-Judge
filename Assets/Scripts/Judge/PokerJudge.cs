@@ -6,12 +6,14 @@ public class PokerJudge : MonoBehaviour
 {
 	public const int PlayerCount = 2;
 
-	public static int roundnr = 4;
 
-
+	/// <summary>
+	/// The core of the Judge, it's where the magic starts to happen. :)
+	/// </summary>
 	void Start ()
 	{
 		string[] input = Poker.Game;
+
 		int[] playerWins = new int[PlayerCount];
 		int drawCount = 0;
 
@@ -20,12 +22,6 @@ public class PokerJudge : MonoBehaviour
 		// Go through all rounds and determine the winner.
 		foreach (Round round in rounds)
 		{
-			roundnr++;
-
-			// --- TEST DATA
-			PokerTools.FindDuplicateCards(round, roundnr);
-			// -- END TEST DATA
-
 			int winner = round.Winner();
 
 			if (winner == -1)

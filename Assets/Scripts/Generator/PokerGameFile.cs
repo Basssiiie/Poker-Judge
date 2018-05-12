@@ -5,22 +5,27 @@ using System.IO;
 
 public class PokerGameFile
 {
-	private const string fileHeader = "public static partial class Poker\r\n{\r\n\tpublic static string[] Game =\r\n\t{";
+	private const string fileHeader = "public static class Poker\r\n{\r\n\tpublic static string[] Game =\r\n\t{";
 	private const string fileFooter = "\t};\r\n}";
 
 	private string name;
 	private string path;
 	private StreamWriter file;
 
-	public PokerGameFile(string fileName)
+
+	/// <summary>
+	/// Note that you still need to let Unity recompile the C# code before it recognizes a new 
+	/// file has been created.
+	/// </summary>
+	public PokerGameFile(string inputName)
 	{
-		name = fileName + ".cs";
+		name = Path.ChangeExtension(inputName, ".cs");
 		path = Path.Combine(Application.dataPath, name);
 
 		if (File.Exists(path))
 		{
 			File.Delete(path);
-			Debug.LogFormat("File {0} is deleted!", fileName);
+			Debug.LogFormat("File {0} is deleted!", inputName);
 		}
 
 		file = File.CreateText(path);

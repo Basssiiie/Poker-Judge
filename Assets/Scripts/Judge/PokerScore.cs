@@ -110,7 +110,6 @@ public static class PokerScore
 			highestValue = expectedValue;
 			expectedValue++;
 		}
-		Debug.Log("Straight " + hand.ToString());
 		return (400 + highestValue);
 	}
 
@@ -132,8 +131,7 @@ public static class PokerScore
 			if (card.Value > highestValue)
 				highestValue = card.Value;
 		}
-
-		Debug.Log("Flush " + hand.ToString());
+		
 		return (500 + highestValue);
 	}
 
@@ -163,7 +161,6 @@ public static class PokerScore
 
 		if (hasThree && hasTwo)
 		{
-			Debug.Log("Full House " + hand.ToString());
 			return (600 + highestValue);
 		}
 		else return 0;
@@ -179,7 +176,6 @@ public static class PokerScore
 		int pairValue = SomeOfAKind(hand, 4);
 		if (pairValue != 0)
 		{
-			Debug.Log("Four of a Kind " + hand.ToString());
 			return (700 + pairValue);
 		}
 		else return 0;
@@ -194,7 +190,6 @@ public static class PokerScore
 	{
 		if (Straight(hand) > 0 && Flush(hand) > 0)
 		{
-			Debug.Log("Straight Flush " + hand.ToString());
 			int highestValue = HighestCard(hand);
 			return (800 + highestValue);
 		}
@@ -223,7 +218,6 @@ public static class PokerScore
 
 			expectedValue++;
 		}
-		Debug.Log("Royal Flush " + hand.ToString());
 		return 900;
 	}
 

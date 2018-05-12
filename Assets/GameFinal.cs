@@ -1,4 +1,4 @@
-public static partial class Poker
+public static class Poker
 {
 	public static string[] Game =
 	{
@@ -960,7 +960,7 @@ public static partial class Poker
 		"DA D8 D7 S5 CT|DQ D6 S9 HT SK",
 		"C4 CT C2 S7 S8|C3 S2 C7 H7 CK",
 		"D4 C6 H7 H9 HA|DJ D9 DK H5 D7",
-		"DA SJ D4 C7 D8|HA DA SA D9 S9",
+		"DT SJ D4 C7 D8|HA DA SA D9 S9",
 		"C8 H5 S9 DK H3|S2 DQ D5 H6 CT",
 		"D7 D6 H4 S8 CA|S7 D5 S6 C6 DA",
 		"C2 S6 CJ C7 SK|HJ S3 DJ HQ S9",
