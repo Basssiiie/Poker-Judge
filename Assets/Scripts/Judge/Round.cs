@@ -56,7 +56,7 @@ public class Round
 
 			scores[p] = PokerScore.Straight(hand);
 			if (scores[p] > 0) continue;
-
+			
 			scores[p] = PokerScore.ThreeOfAKind(hand);
 			if (scores[p] > 0) continue;
 
