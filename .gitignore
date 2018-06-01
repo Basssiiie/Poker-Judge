@@ -302,3 +302,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/output-voldoende.txt
+/output-mine.txt
+/output-hands.txt
+/output-goed.txt
+/output.txt

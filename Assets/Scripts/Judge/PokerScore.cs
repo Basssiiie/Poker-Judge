@@ -237,7 +237,7 @@ public static class PokerScore
 		{
 			// group.Value = the count, not the Card Value!
 			// group.Key = the actual card Value
-			if (group.Value == amount)
+			if (group.Value >= amount)
 			{
 				highestValue = group.Key;
 			}

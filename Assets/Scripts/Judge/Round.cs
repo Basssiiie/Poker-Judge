@@ -26,9 +26,9 @@ public class Round
 
 
 	/// <summary>
-	/// Calculates the winner and returns the index. (0 = first player, 1 = second player etc.)
+	/// Calculates the winner and returns the index. (-1 = draw, 0 = first player, 1 = second player etc.)
 	/// </summary>
-	/// <returns>Array index of the winning player</returns>
+	/// <returns>Array index of the winning player, or -1 if draw</returns>
 	public int Winner()
 	{
 		int[] scores = new int[Players.Length];
@@ -39,24 +39,27 @@ public class Round
 
 			// Check each possible poker set, if it returns a score instead of 0 then finish and 
 			// continue to the next player.
-			scores[p] = PokerScore.RoyalFlush(hand);
-			if (scores[p] > 0) continue;
+			if (PokerJudge.ScoreGoed)
+			{
+				scores[p] = PokerScore.RoyalFlush(hand);
+				if (scores[p] > 0) continue;
 
-			scores[p] = PokerScore.StraightFlush(hand);
-			if (scores[p] > 0) continue;
+				scores[p] = PokerScore.StraightFlush(hand);
+				if (scores[p] > 0) continue;
 
-			scores[p] = PokerScore.FourOfAKind(hand);
-			if (scores[p] > 0) continue;
+				scores[p] = PokerScore.FourOfAKind(hand);
+				if (scores[p] > 0) continue;
 
-			scores[p] = PokerScore.FullHouse(hand);
-			if (scores[p] > 0) continue;
+				scores[p] = PokerScore.FullHouse(hand);
+				if (scores[p] > 0) continue;
 
-			scores[p] = PokerScore.Flush(hand);
-			if (scores[p] > 0) continue;
+				scores[p] = PokerScore.Flush(hand);
+				if (scores[p] > 0) continue;
 
-			scores[p] = PokerScore.Straight(hand);
-			if (scores[p] > 0) continue;
-			
+				scores[p] = PokerScore.Straight(hand);
+				if (scores[p] > 0) continue;
+			}
+
 			scores[p] = PokerScore.ThreeOfAKind(hand);
 			if (scores[p] > 0) continue;
 
